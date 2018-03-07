@@ -1,0 +1,24 @@
+{
+    "name": "vue_es8_webpack4",
+    "version": "1.0.0",
+    "description": "- cnpm install",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --config ./build/build.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GZQbutterfly/VUE_ES8_WEBPACK4.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GZQbutterfly/VUE_ES8_WEBPACK4/issues"
+    },
+    "homepage": "https://github.com/GZQbutterfly/VUE_ES8_WEBPACK4#readme",
+    "devDependencies": {
+        "webpack": "^4.1.0",
+        "webpack-cli": "^2.0.10"
+    }
+}
