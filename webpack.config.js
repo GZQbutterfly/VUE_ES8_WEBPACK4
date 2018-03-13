@@ -3,8 +3,11 @@ const path = require('path');
 console.log(33333333333333333333333);
 
 module.exports = {
+    entry = {
+        'main': './src/app.js'
+    },
     output: {
-        path: path.join(__dirname, '../dist'),
+        path: './dist',
         filename: '[name].js',
         chunkFilename: '[name].js?[hash:20]',
         publicPath: '../'
@@ -18,7 +21,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 use: 'babel-loader?cacheDirectory',
-                include: [path.join(__dirname, '../src')],
+                include: [path.join(__dirname, './src')],
                 exclude: /node_modules/
             }, 
             {

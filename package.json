@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "demoS": "node ./demo/server/config.js"
+    "demoS": "node ./demo/server/config.js",
+    "dev": "webpack --config ./build/build.js --mode development",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +20,8 @@
     "vue-property-decorator": "^6.0.0",
     "vue-router": "^3.0.1",
     "vue-server-renderer": "^2.5.15",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
@@ -48,6 +51,7 @@
     "vue-style-loader": "^4.0.2",
     "vue-template-compiler": "^2.5.15",
     "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11",
     "webpack-dev-middleware": "^3.0.1",
     "webpack-hot-middleware": "^2.21.2",
     "webpack-merge": "^4.1.2"

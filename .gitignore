@@ -6,3 +6,4 @@ npm-debug.log.?**
 npm-debug.log
 *.dll
 .idea
+*.DS_Store
