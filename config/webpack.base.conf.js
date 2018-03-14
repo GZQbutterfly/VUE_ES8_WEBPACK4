@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
-console.log(33333333333333333333333);
+
+const  ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     output: {
@@ -16,10 +17,9 @@ module.exports = {
                 use: 'vue-loader',
             }, 
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js)$/,
                 use: 'babel-loader?cacheDirectory',
-                include: [path.join(__dirname, '../src')],
-                exclude: /node_modules/
+                include: [path.join(__dirname, '../src')]
             }, 
             {
                 test: /\.(html|htm)$/,
@@ -40,7 +40,7 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            publicPath: '/'
+                            publicPath: '/',
                             limit: 10000,
                             name: 'static/images/build/[name].[ext]?[hash]'
                         }
@@ -51,9 +51,10 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.jsx'  '.vue'],
+        extensions: ['.js', '.jsx',  '.vue'],
         alias: {
             // 'vue$': path.join(__dirname, '../node_modules/vue/dist/vue.esm.js'),
         }
-    }
+    },
+    plugins:[]
 };
