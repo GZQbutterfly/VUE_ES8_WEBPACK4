@@ -38,7 +38,8 @@
 
 
   ## node
-   cnpm i -S express
+   cnpm i -s cross-env
+   cnpm i -S lru-cache
 
 
 

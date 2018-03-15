@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from 'vue';
 
 import { createRouter } from './router';
 import store from './store';
@@ -11,13 +11,10 @@ export function createApp() {
     sync(store, router);
 
     const app = new Vue({
-        // el:'#app',
         store,
         router,
         template: '<router-view></router-view>'
-        // 根实例简单的渲染应用程序组件。
-        // render: h => h(<router-view></router-view>)
-
     });
+    
     return { app, router, store };
 }

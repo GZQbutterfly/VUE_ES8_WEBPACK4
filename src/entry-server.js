@@ -1,7 +1,10 @@
 // # 仅运行于服务器
+
 import { createApp } from './app';
+import { get } from 'lodash';
 
 const isDev = process.env.NODE_ENV !== 'production';
+
 
 export default context => {
 
@@ -29,19 +32,23 @@ export default context => {
             // A preFetch hook dispatches a store action and returns a Promise,
             // which is resolved when the action is complete and store state has been
             // updated.
-            Promise.all(matchedComponents.map(({ asyncData }) => asyncData && asyncData({
-                store,
-                route: router.currentRoute
-            }))).then(() => {
-                isDev && console.log(`data pre-fetch: ${Date.now() - s}ms`)
+            Promise.all(matchedComponents.map((item) =>{
+                var asyncData =  get(item, 'options.methods.asyncData');
+                return asyncData && asyncData({
+                    store,
+                    route: router.currentRoute
+                });
+            }
+           )).then(() => {
+                isDev && console.log(`data pre-fetch: ${Date.now() - s}ms`);
                 // After all preFetch hooks are resolved, our store is now
                 // filled with the state needed to render the app.
                 // Expose the state on the render context, and let the request handler
                 // inline the state in the HTML response. This allows the client-side
                 // store to pick-up the server-side state without having to duplicate
                 // the initial data fetching on the client.
-                context.state = store.state
-                resolve(app)
+                context.state = store.state;
+                resolve(app);
             }).catch(reject)
         }, reject);
     });

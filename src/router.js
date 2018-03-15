@@ -2,7 +2,11 @@ import Vue from 'vue';
 import Router from 'vue-router';
 Vue.use(Router);
 
-import {aa} from './pages/aa/aa.js';
+import {aa} from './pages/aa/aa';
+import {bb} from './pages/bb/bb';
+
+const isServer = process.env.VUE_ENV === 'server';
+
 
 export function createRouter() {
     return new Router({
@@ -12,12 +16,25 @@ export function createRouter() {
                 path: '/',
                 name: 'home',
                 component: resolve => resolve(aa)
-                // render: h => App(h)
-                // component: resolve => {
-                //     require.ensure([], require => {
-                //         resolve(require('../sys/notfound/notfound')['NotFound']);
-                //     }, 'sys/system');
-                // }
+            },
+            {
+                path: '/aa',
+                name: 'aa',
+                component: resolve => resolve(aa)
+            },
+            {
+                path: '/bb',
+                name: 'bb',
+                component: resolve => {
+                    console.log('vue server: ', isServer);
+                    if(!isServer){
+                        require.ensure([], require => {
+                            resolve(require('./pages/bb/bb')['bb']);
+                        }, 'sys/system');
+                    }else{
+                        resolve(bb);
+                    }
+                }
             },
             {
                 path: '**',

@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'),
 
 
 baseConfig.entry = {
-    'main': path.join(__dirname, '../src/app.js')
+    'main': path.join(__dirname, '../src/entry-client.js')
 };
 
 

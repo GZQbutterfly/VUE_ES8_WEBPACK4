@@ -53,7 +53,8 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.jsx',  '.vue'],
         alias: {
-            // 'vue$': path.join(__dirname, '../node_modules/vue/dist/vue.esm.js'),
+            'vue$': path.join(__dirname, '../node_modules/vue/dist/vue.esm.js'),
+            'create-api': './api_client.js'
         }
     },
     plugins:[]
